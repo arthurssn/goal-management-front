@@ -6,6 +6,6 @@ export async function loginService(loginData: IUserAuth) {
     const response = await http.post("/login", loginData);
     return response.data;
   } catch (error) {
-    return null;
+    throw error;
   }
 }
