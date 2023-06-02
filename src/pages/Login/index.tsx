@@ -1,7 +1,7 @@
 import { InputLabel } from "./components/InputLabel";
 
 import React, { useState } from "react";
-import { useAuth } from "../../contexts/AuthContext/useAuth";
+import { useAuth } from "../../hooks/useAuth";
 import {
   ContainerPageLogin,
   ContainerFormLogin,
@@ -15,6 +15,7 @@ import {
 import { IUserAuth } from "../../interfaces/IUserAuth";
 import { AppButton } from "./components/AppButton";
 import { AxiosError } from "axios";
+import { useTheme } from "@/hooks/useTheme";
 
 interface ApiResponse {
   error: string;
@@ -24,7 +25,7 @@ export default function Login() {
   const [user, setUser] = useState<IUserAuth>({ email: "", password: "" });
   const [sendingData, setSendingData] = useState<boolean>(false);
   const [errorMessage, setErrorMessage] = useState<string | undefined>("");
-
+  const { theme } = useTheme();
   const authContext = useAuth();
   async function login(e: React.FormEvent) {
     e.preventDefault();
@@ -73,7 +74,7 @@ export default function Login() {
           <AppButton
             type="submit"
             text="Login"
-            backgroundColor="#ff3f34"
+            backgroundColor={theme.colors.red}
             color="#fff"
             loading={sendingData}
           />
@@ -90,7 +91,7 @@ export default function Login() {
             text="Cadastre-se"
             backgroundColor="#fff"
             color="#333333"
-            borderColor="#ff3f34"
+            borderColor={theme.colors.red}
             type="button"
           />
         </FooterContainer>
