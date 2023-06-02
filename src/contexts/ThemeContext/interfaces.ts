@@ -1,14 +1,4 @@
-export interface Theme {
-  name: "defaultTheme";
-  colors: {
-    red: string;
-    white: string;
-  };
-
-  alertsColor: {
-    warning: string;
-  };
-}
+import { Theme } from "@/interfaces/ITheme";
 
 export interface ThemeContextData {
   toggleTheme(name: "defaultTheme" | null): void;

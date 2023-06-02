@@ -1,4 +1,4 @@
-import { Theme } from "@/contexts/ThemeContext/interfaces";
+import { Theme } from "@/interfaces/ITheme";
 
 export const defaultTheme: Theme = {
   name: "defaultTheme",
