@@ -71,6 +71,7 @@ export default function Login() {
 
         <FooterContainer>
           <AppButton
+            type="submit"
             text="Login"
             backgroundColor="#ff3f34"
             color="#fff"
@@ -90,6 +91,7 @@ export default function Login() {
             backgroundColor="#fff"
             color="#333333"
             borderColor="#ff3f34"
+            type="button"
           />
         </FooterContainer>
       </ContainerFormLogin>

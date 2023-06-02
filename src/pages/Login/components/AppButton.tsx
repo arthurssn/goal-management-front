@@ -9,6 +9,7 @@ interface AppButtonProps {
   backgroundColor: string;
   borderColor?: string;
   loading?: boolean;
+  type?: "button" | "submit" | "reset"; // Ajuste da tipagem da propriedade type
 }
 
 export function AppButton({
@@ -17,12 +18,13 @@ export function AppButton({
   backgroundColor,
   borderColor,
   loading,
+  type,
 }: AppButtonProps) {
   return (
     <ButtonFormLogin
       color={color}
       backgroundColor={backgroundColor}
-      type="submit"
+      type={type ?? "button"}
       borderColor={borderColor}
     >
       {loading ? <Spinner /> : ""}
