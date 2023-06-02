@@ -22,7 +22,9 @@ export const ContainerFormLogin = styled.form`
 export const HeaderContainer = styled.div`
   margin-bottom: 75px;
   display: flex;
-  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  flex-direction: column;
 `;
 
 export const LoginTitle = styled.h1`
@@ -110,4 +112,26 @@ export const ButtonFormLogin = styled.button<ButtonFormLoginProps>`
   :hover {
     box-shadow: none;
   }
+`;
+
+const BaseContainerMessage = styled.div`
+  width: 300px;
+  height: 50px;
+  border-radius: 5px;
+  @media ${devices.tablet} {
+    width: 433px;
+  }
+
+  display: flex;
+  align-items: center;
+  padding: 0px 10px;
+  font-weight: 600;
+`;
+
+export const ContainerErrorMessage = styled(BaseContainerMessage)`
+  background-color: rgba(255, 162, 0, 0.75);
+`;
+
+export const ContainerSuccessMessage = styled(BaseContainerMessage)`
+  background-color: rgba(0, 255, 0, 0.75);
 `;
