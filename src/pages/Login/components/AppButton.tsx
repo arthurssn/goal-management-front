@@ -4,7 +4,7 @@ import { Spinner } from "@/styles/spinner";
 
 interface AppButtonProps {
   text: string;
-  onClick?: (event: MouseEvent<HTMLButtonElement>) => void;
+  onClick?: (event: MouseEvent<HTMLButtonElement | HTMLLabelElement>) => void;
   color: string;
   backgroundColor: string;
   borderColor?: string;
@@ -19,6 +19,7 @@ export function AppButton({
   borderColor,
   loading,
   type,
+  onClick,
 }: AppButtonProps) {
   return (
     <ButtonFormLogin
@@ -26,6 +27,7 @@ export function AppButton({
       backgroundColor={backgroundColor}
       type={type ?? "button"}
       borderColor={borderColor}
+      onClick={onClick}
     >
       {loading ? <Spinner /> : ""}
       {text}
