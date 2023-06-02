@@ -1,5 +1,6 @@
 import { MouseEvent } from "react";
 import { ButtonFormLogin } from "../styles";
+import { Spinner } from "@/styles/spinner";
 
 interface AppButtonProps {
   text: string;
@@ -7,6 +8,7 @@ interface AppButtonProps {
   color: string;
   backgroundColor: string;
   borderColor?: string;
+  loading?: boolean;
 }
 
 export function AppButton({
@@ -14,6 +16,7 @@ export function AppButton({
   color,
   backgroundColor,
   borderColor,
+  loading,
 }: AppButtonProps) {
   return (
     <ButtonFormLogin
@@ -22,6 +25,7 @@ export function AppButton({
       type="submit"
       borderColor={borderColor}
     >
+      {loading ? <Spinner /> : ""}
       {text}
     </ButtonFormLogin>
   );
