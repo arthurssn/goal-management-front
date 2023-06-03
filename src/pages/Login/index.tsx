@@ -75,12 +75,12 @@ export default function Login() {
             type="submit"
             text="Login"
             backgroundColor={theme.colors.red}
-            color="#fff"
+            color={theme.colors.white}
             loading={sendingData}
           />
           <p
             style={{
-              color: "rgba(102, 102, 102, 0.75)",
+              color: theme.colors.lightTextColor,
               fontSize: "20px",
               fontWeight: 600,
             }}

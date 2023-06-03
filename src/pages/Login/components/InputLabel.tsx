@@ -1,5 +1,5 @@
 import { ChangeEvent } from "react";
-import { InputFormLogin, LabelFormLogin } from "../styles";
+import { InputFormLogin, LabelFormLogin } from "./styles";
 
 interface InputLabelProps {
   placeholder: string;

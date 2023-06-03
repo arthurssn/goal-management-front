@@ -1,5 +1,5 @@
 import { MouseEvent } from "react";
-import { ButtonFormLogin } from "../styles";
+import { ButtonFormLogin } from "./styles";
 import { Spinner } from "@/styles/spinner";
 
 interface AppButtonProps {
@@ -9,7 +9,7 @@ interface AppButtonProps {
   backgroundColor: string;
   borderColor?: string;
   loading?: boolean;
-  type?: "button" | "submit" | "reset"; // Ajuste da tipagem da propriedade type
+  type?: "button" | "submit" | "reset";
 }
 
 export function AppButton({

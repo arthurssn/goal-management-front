@@ -3,6 +3,9 @@ export interface Theme {
   colors: {
     red: string;
     white: string;
+
+    darkTextColor: string;
+    lightTextColor: string;
   };
 
   alertsColor: {
