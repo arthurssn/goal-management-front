@@ -1,6 +1,6 @@
 import { AuthProvider } from "./contexts/AuthContext";
 import { CustomThemeProvider } from "./contexts/ThemeContext";
-import Login from "./pages/Login";
+import AppRoutes from "./routes";
 import GlobalStyle from "./styles/GlobalStyle";
 
 function App() {
@@ -9,7 +9,7 @@ function App() {
       <CustomThemeProvider>
         <GlobalStyle />
         <AuthProvider>
-          <Login></Login>
+          <AppRoutes />
         </AuthProvider>
       </CustomThemeProvider>
     </>
