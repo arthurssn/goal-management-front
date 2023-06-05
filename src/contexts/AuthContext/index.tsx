@@ -1,5 +1,5 @@
 import { createContext, useEffect, useState } from "react";
-import { IContext } from "./interfaces";
+import { IAuthContext } from "./interfaces";
 import { IContextProvider } from "@/interfaces/IContextProvider";
 import { IUserAuth } from "@/interfaces/IUserAuth";
 import { loginService } from "@/services/AuthService";
@@ -9,7 +9,7 @@ import {
   setUserLocalStorage,
 } from "../../utils/localStorageAccess";
 
-export const AuthContext = createContext<IContext>({} as IContext);
+export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider = ({ children }: IContextProvider) => {
   const [user, setUser] = useState<IUserAuth | null>();
