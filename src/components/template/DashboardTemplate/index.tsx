@@ -1,14 +1,9 @@
 import Sidebar from "@/components/layout/Sidebar";
 import { GridContainer, AppSidebar, AppMain, AppHeader } from "./styles";
 import Header from "@/components/layout/Header";
+import { Outlet } from "react-router-dom";
 
-export interface DashboardTemplateProps {
-  children: JSX.Element | JSX.Element[];
-}
-
-export default function DashboardTemplate({
-  children,
-}: DashboardTemplateProps) {
+export default function DashboardTemplate() {
   return (
     <GridContainer>
       <AppSidebar>
@@ -17,7 +12,9 @@ export default function DashboardTemplate({
       <AppHeader>
         <Header></Header>
       </AppHeader>
-      <AppMain>{children}</AppMain>
+      <AppMain>
+        <Outlet />
+      </AppMain>
     </GridContainer>
   );
 }
