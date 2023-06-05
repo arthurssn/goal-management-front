@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import { BaseContainerMessage } from "@/styles/containers";
 import { devices } from "@/constants/devices";
+import { Link } from "react-router-dom";
 
 export const ContainerPageLogin = styled.div`
   width: 100%;
@@ -56,3 +57,5 @@ export const ContainerErrorMessage = styled(BaseContainerMessage)`
     width: 433px;
   }
 `;
+
+export const LinkLogin = styled(Link)``;

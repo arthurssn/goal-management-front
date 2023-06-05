@@ -1,7 +1,9 @@
-import { InputLabel } from "./components/InputLabel";
+import { InputLabel } from "../components/InputLabel";
 
 import React, { useState } from "react";
+
 import { useAuth } from "@/hooks/useAuth";
+
 import {
   ContainerPageLogin,
   ContainerFormLogin,
@@ -11,11 +13,13 @@ import {
   FormGroup,
   FooterContainer,
   ContainerErrorMessage,
-} from "./styles";
+} from "../styles";
+
 import { IUserAuth } from "@/interfaces/IUserAuth";
-import { AppButton } from "./components/AppButton";
+import { AppButton } from "../components/AppButton";
 import { AxiosError } from "axios";
 import { useTheme } from "@/hooks/useTheme";
+import { useNavigate } from "react-router-dom";
 
 interface ApiResponse {
   error: string;
@@ -27,6 +31,7 @@ export default function Login() {
   const [errorMessage, setErrorMessage] = useState<string | undefined>("");
   const { theme } = useTheme();
   const authContext = useAuth();
+  const navigate = useNavigate();
   async function login(e: React.FormEvent) {
     e.preventDefault();
     setSendingData(true);
@@ -90,9 +95,10 @@ export default function Login() {
           <AppButton
             text="Cadastre-se"
             backgroundColor="#fff"
-            color="#333333"
+            color={theme.colors.darkTextColor}
             borderColor={theme.colors.red}
             type="button"
+            onClick={() => navigate("/register")}
           />
         </FooterContainer>
       </ContainerFormLogin>
