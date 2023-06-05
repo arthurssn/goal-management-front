@@ -93,7 +93,7 @@ export default function Login() {
             ou
           </p>
           <AppButton
-            text="Cadastre-se"
+            text="Register"
             backgroundColor="#fff"
             color={theme.colors.darkTextColor}
             borderColor={theme.colors.red}
