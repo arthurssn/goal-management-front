@@ -1,4 +1,4 @@
-import ExpandableList from "@/components/ExpandableList";
+import ExpandableList from "./ExpandableList";
 import { IMenuItem } from "@/interfaces/IMenuItem";
 import { getMenuPriority } from "@/services/MenuService";
 import { useState, useEffect } from "react";
