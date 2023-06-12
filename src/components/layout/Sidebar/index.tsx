@@ -1,9 +1,13 @@
-import { SidebarContainer } from "./styles";
+import { SeparatorLine, SidebarContainer } from "./styles";
+import CategoriesList from "./CategoriesList";
+import PriorityList from "./PriorityList";
 
 export default function Sidebar() {
   return (
     <SidebarContainer>
-      <h1>Sidebar</h1>
+      <PriorityList />
+      <SeparatorLine />
+      <CategoriesList />
     </SidebarContainer>
   );
 }
