@@ -13,15 +13,15 @@ export const AuthContext = createContext<IAuthContext>({} as IAuthContext);
 
 export const AuthProvider = ({ children }: IContextProvider) => {
   const [user, setUser] = useState<IUserAuth | null>();
+  const [isInitialized, setIsInitialized] = useState(false);
 
   useEffect(() => {
     const user = getUserLocalStorage();
     if (user) {
       setUser(user);
-      return;
     }
 
-    setUser(null);
+    setIsInitialized(true);
   }, []);
 
   async function login(loginData: IUserAuth): Promise<void> {
@@ -38,7 +38,7 @@ export const AuthProvider = ({ children }: IContextProvider) => {
     setUserLocalStorage(null);
   }
   return (
-    <AuthContext.Provider value={{ ...user, login, logout }}>
+    <AuthContext.Provider value={{ ...user, login, logout, isInitialized }}>
       {children}
     </AuthContext.Provider>
   );
