@@ -37,6 +37,7 @@ export default function Login() {
     setSendingData(true);
     try {
       await authContext.login(user);
+      navigate("/");
     } catch (error) {
       const axiosError = error as AxiosError<ApiResponse>;
       const errorMessage = axiosError.response?.data?.error;
