@@ -9,7 +9,13 @@ export default function AppSelect({
   width,
 }: IAppSelectProps) {
   return (
-    <AppSelectInput name={name} id={id} width={width}>
+    <AppSelectInput
+      name={name}
+      id={id}
+      width={width}
+      label={label}
+      options={options}
+    >
       <option value={undefined} disabled>
         {label}
       </option>
