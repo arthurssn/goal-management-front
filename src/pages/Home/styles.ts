@@ -21,4 +21,7 @@ export const CreateButtonContainer = styled.div`
 
 export const ListContainer = styled.div`
   margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
 `;
