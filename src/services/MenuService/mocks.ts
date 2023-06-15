@@ -52,6 +52,6 @@ export const priorities: IMenuItem[] = [
   },
   {
     icon: "src/services/MenuService/icons/star_icon.svg",
-    label: "Ready 24 books",
+    label: "Read 24 books",
   },
 ];
