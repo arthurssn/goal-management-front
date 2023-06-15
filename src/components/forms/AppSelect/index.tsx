@@ -6,17 +6,17 @@ export default function AppSelect({
   name,
   id,
   options,
-  width,
   onChange,
+  value,
 }: IAppSelectProps) {
   return (
     <AppSelectInput
       name={name}
       id={id}
-      width={width}
       label={label}
       options={options}
       onChange={onChange}
+      value={value}
     >
       <option value={undefined} disabled>
         {label}
