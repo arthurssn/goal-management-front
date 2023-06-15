@@ -4,7 +4,7 @@ import { IAppSelectProps } from "./interfaces";
 export const AppSelectInput = styled.select<IAppSelectProps>`
   border-radius: 5px;
   height: 100%;
-  width: 100%;
+  width: ${(props) => props.width ?? "100%"};
   color: #333333;
   opacity: 0.5;
 

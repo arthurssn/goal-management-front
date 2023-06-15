@@ -7,6 +7,7 @@ export default function AppSelect({
   id,
   options,
   width,
+  onChange,
 }: IAppSelectProps) {
   return (
     <AppSelectInput
@@ -15,12 +16,13 @@ export default function AppSelect({
       width={width}
       label={label}
       options={options}
+      onChange={onChange}
     >
       <option value={undefined} disabled>
         {label}
       </option>
-      {options.map((option) => (
-        <option key={option.id} value={option.value}>
+      {options.map((option, index) => (
+        <option key={index} value={option.value}>
           {option.label}
         </option>
       ))}
