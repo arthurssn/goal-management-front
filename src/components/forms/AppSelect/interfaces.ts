@@ -8,4 +8,5 @@ export interface IAppSelectProps extends FormInputProps {
   id: string;
   options: IAppSelectOptions[];
   onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
+  value: string | number | readonly string[] | undefined;
 }
