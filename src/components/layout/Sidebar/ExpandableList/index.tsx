@@ -24,12 +24,7 @@ export default function ExpandableList({ items, title }: ExpandableListProps) {
         <Content>
           <List expanded={expanded}>
             {items.map((item) => (
-              <ItemList
-                key={item.label}
-                label={item.label}
-                icon={item.icon}
-                subitems={item.subitems}
-              />
+              <ItemList menuItem={item} />
             ))}
           </List>
         </Content>

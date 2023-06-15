@@ -4,7 +4,7 @@ import SubItemList from "../SubItemList";
 import { useState } from "react";
 import chevronDown from "@/assets/chevron_down.svg";
 
-export default function ItemList(menuItem: IMenuItem) {
+export default function ItemList({ menuItem }: { menuItem: IMenuItem }) {
   const [expanded, setExpanded] = useState(false);
 
   const toggleExpanded = () => {
