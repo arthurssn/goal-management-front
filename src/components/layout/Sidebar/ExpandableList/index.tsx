@@ -23,8 +23,8 @@ export default function ExpandableList({ items, title }: ExpandableListProps) {
       {expanded && (
         <Content>
           <List expanded={expanded}>
-            {items.map((item) => (
-              <ItemList menuItem={item} />
+            {items.map((item, index) => (
+              <ItemList menuItem={item} key={index} />
             ))}
           </List>
         </Content>
