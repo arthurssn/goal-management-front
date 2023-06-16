@@ -23,10 +23,11 @@ export default function Home() {
   ];
 
   const [goals, setGoals] = useState<IGoal[]>([]);
+  const [wordSearched, setWordSearched] = useState<string>("");
+  const [deadlineFilter, setDeadlineFilter] = useState<number | string>("");
 
   async function getGoals() {
-    const response = await getAll();
-    setGoals(response);
+    setGoals(await getAll());
   }
 
   function updateGoalStatus(id: number, status: GoalStatus) {
@@ -42,6 +43,13 @@ export default function Home() {
     getGoals();
   }, []);
 
+  const renderedList =
+    wordSearched.length > 0
+      ? goals.filter((goal) =>
+          goal.title.toLowerCase().includes(wordSearched.toLowerCase())
+        )
+      : goals;
+
   return (
     <IndexList
       title="Goals"
@@ -53,18 +61,20 @@ export default function Home() {
               name="deadlineSelect"
               label="Select"
               options={options}
-              value={undefined}
+              value={deadlineFilter}
+              onChange={(e) => setDeadlineFilter(e.target.value)}
             />
             <InputWithBorderBottom
               icon={search_icon}
               placeholder="Search Items"
+              onChange={(e) => setWordSearched(e.target.value)}
             />
           </InputsFilterContainer>
           <CreateButtonContainer>
             <CreateButton />
           </CreateButtonContainer>
           <ListContainer>
-            {goals.map((goal) => (
+            {renderedList.map((goal) => (
               <ItemList
                 goal={goal}
                 onUpdateStatus={updateGoalStatus}
