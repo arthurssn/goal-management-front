@@ -1,9 +1,12 @@
 import { GoalStatus } from "@/enums/GoalStatus";
 import { IGoal } from "@/interfaces/IGoal";
 
-var dataAtual = new Date();
-dataAtual.setFullYear(dataAtual.getFullYear() + 1);
-
+const onNextWeek = new Date();
+onNextWeek.setDate(onNextWeek.getDate() + 2);
+const inThisMonth = new Date();
+inThisMonth.setDate(inThisMonth.getDate() + 15);
+const inThisYear = new Date();
+inThisYear.setMonth(inThisMonth.getMonth() + 5);
 export const goals: IGoal[] = [
   {
     id: 1,
@@ -33,5 +36,29 @@ export const goals: IGoal[] = [
     status: GoalStatus.Done,
     description: "Buy an English course and get started",
     deadline: new Date(),
+  },
+  {
+    id: 5,
+    title: "Meta Diária",
+    deadline: new Date(),
+    status: GoalStatus.InProgress,
+  },
+  {
+    id: 6,
+    title: "Meta Semanal",
+    deadline: onNextWeek,
+    status: GoalStatus.Done,
+  },
+  {
+    id: 7,
+    title: "Meta Mensal",
+    deadline: inThisMonth,
+    status: GoalStatus.Pending,
+  },
+  {
+    id: 8,
+    title: "Meta Anual",
+    deadline: inThisYear,
+    status: GoalStatus.InProgress,
   },
 ];
