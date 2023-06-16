@@ -29,7 +29,7 @@ export const goals: IGoal[] = [
   },
   {
     id: 4,
-    title: "Start learn english",
+    title: "start learning english",
     status: GoalStatus.Done,
     description: "Buy an English course and get started",
     deadline: new Date(),
