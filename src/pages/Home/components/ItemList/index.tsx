@@ -6,7 +6,7 @@ import {
   Separator,
   StatusSelectContainer,
   StatusText,
-  TitleText,
+  TitleContainer,
 } from "./styles";
 import chevron from "./chevron.svg";
 import { IGoal } from "@/interfaces/IGoal";
@@ -19,6 +19,7 @@ import { ChangeEvent, useState } from "react";
 import { updateStatus } from "@/services/GoalsService";
 import { GoalStatus } from "@/enums/GoalStatus";
 import AppSelect from "@/components/forms/AppSelect";
+import { goalStatusOptions } from "@/constants/goalStatusOptions";
 
 export default function ItemList({
   goal,
@@ -28,11 +29,8 @@ export default function ItemList({
   onUpdateStatus: (id: number, status: GoalStatus) => void;
 }) {
   const [expanded, setExpanded] = useState<boolean>(false);
-  const statusOptions = [
-    { id: 3, label: "Done", value: 1 },
-    { id: 1, label: "Pending", value: 2 },
-    { id: 2, label: "In Progress", value: 3 },
-  ];
+  const statusOptions = goalStatusOptions;
+
   function toggleExpanded() {
     setExpanded((prev) => !prev);
   }
@@ -46,20 +44,21 @@ export default function ItemList({
 
   return (
     <ItemListContainer>
-      <ItemContent>
-        <TitleText>
+      <ItemContent onClick={toggleExpanded}>
+        <TitleContainer>
           <StatusSelectContainer>
             <AppSelect
               id="status"
-              label="Select"
               name="status"
+              label="Select"
               options={statusOptions}
               onChange={tryUpdateGoalStatus}
               value={goal.status}
+              onClick={(e) => e.stopPropagation()}
             />
           </StatusSelectContainer>
           {goal.title}
-        </TitleText>
+        </TitleContainer>
         <StatusText color={getGoalStatusColor(goal.status)}>
           Status: {getGoalStatusText(goal.status)}
         </StatusText>

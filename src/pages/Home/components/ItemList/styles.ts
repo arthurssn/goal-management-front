@@ -16,6 +16,7 @@ export const Separator = styled.div`
 `;
 
 export const ItemContent = styled.div`
+  cursor: pointer;
   * {
     font-style: normal;
     font-weight: 500;
@@ -38,8 +39,7 @@ export const StatusText = styled.p<{ color: string }>`
   color: ${(props) => props.theme.colors[props.color]};
 `;
 
-export const TitleText = styled.span`
-  cursor: pointer;
+export const TitleContainer = styled.span`
   max-width: 100%;
   overflow: hidden;
   text-overflow: ellipsis;
@@ -68,6 +68,6 @@ export const DescriptionText = styled.p`
 export const StatusSelectContainer = styled.div`
   width: 100%;
   @media ${devices.tablet} {
-    width: 200px;
+    width: 120px;
   }
 `;
