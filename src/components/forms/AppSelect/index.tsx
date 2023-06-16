@@ -7,6 +7,7 @@ export default function AppSelect({
   id,
   options,
   onChange,
+  onClick,
   value,
 }: IAppSelectProps) {
   return (
@@ -16,9 +17,10 @@ export default function AppSelect({
       label={label}
       options={options}
       onChange={onChange}
+      onClick={onClick}
       value={value}
     >
-      <option value={undefined} disabled>
+      <option value="" disabled>
         {label}
       </option>
       {options.map((option, index) => (
