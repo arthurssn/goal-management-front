@@ -16,7 +16,7 @@ import {
   reverseGoalEnum,
 } from "@/utils/goalUtils";
 import { ChangeEvent, useState } from "react";
-import { updateStatus } from "@/services/GoalsService";
+import GoalsService from "@/services/GoalsService";
 import { GoalStatus } from "@/enums/GoalStatus";
 import AppSelect from "@/components/forms/AppSelect";
 import { goalStatusOptions } from "@/constants/goalStatusOptions";
@@ -37,7 +37,7 @@ export default function ItemList({
 
   function tryUpdateGoalStatus(e: ChangeEvent<HTMLSelectElement>) {
     const status = reverseGoalEnum(Number(e.target.value));
-    updateStatus(goal.id, status).then(() => {
+    GoalsService.updateStatus(goal.id, status).then(() => {
       onUpdateStatus(goal.id, status);
     });
   }
