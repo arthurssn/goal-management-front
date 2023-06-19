@@ -16,7 +16,7 @@ export default function Home() {
   const [deadlineFilter, setDeadlineFilter] = useState<Deadlines | "">(
     Deadlines.Daily
   );
-  const [renderedList, updateGoalStatus] = useGoals(
+  const [renderedList, updateGoalStatus, deleteGoal] = useGoals(
     wordSearched,
     deadlineFilter
   );
@@ -37,7 +37,11 @@ export default function Home() {
           <ListContainer>
             {renderedList.map((goal) => (
               <ItemContainer key={goal.id}>
-                <ItemList goal={goal} onUpdateStatus={updateGoalStatus} />
+                <ItemList
+                  goal={goal}
+                  onUpdateStatus={updateGoalStatus}
+                  onClickRemove={deleteGoal}
+                />
                 <Separator />
               </ItemContainer>
             ))}

@@ -16,7 +16,6 @@ import {
   reverseGoalEnum,
 } from "@/utils/goalUtils";
 import { ChangeEvent, useState } from "react";
-import GoalsService from "@/services/GoalsService";
 import { GoalStatus } from "@/enums/GoalStatus";
 import AppSelect from "@/components/forms/AppSelect";
 import { goalStatusOptions } from "@/constants/goalStatusOptions";
@@ -26,9 +25,11 @@ import DeleteButton from "@/components/buttons/DeleteButton";
 export default function ItemList({
   goal,
   onUpdateStatus,
+  onClickRemove,
 }: {
   goal: IGoal;
   onUpdateStatus: (id: number, status: GoalStatus) => void;
+  onClickRemove: (id: number) => void;
 }) {
   const [expanded, setExpanded] = useState<boolean>(false);
 
@@ -36,11 +37,9 @@ export default function ItemList({
     setExpanded((prev) => !prev);
   }
 
-  function tryUpdateGoalStatus(e: ChangeEvent<HTMLSelectElement>) {
+  function handleUpdateGoalStatus(e: ChangeEvent<HTMLSelectElement>) {
     const status = reverseGoalEnum(Number(e.target.value));
-    GoalsService.updateStatus(goal.id, status).then(() => {
-      onUpdateStatus(goal.id, status);
-    });
+    onUpdateStatus(goal.id, status);
   }
 
   return (
@@ -53,7 +52,7 @@ export default function ItemList({
               name="status"
               label="Select"
               options={goalStatusOptions}
-              onChange={tryUpdateGoalStatus}
+              onChange={handleUpdateGoalStatus}
               value={goal.status}
               onClick={(e) => e.stopPropagation()}
             />
@@ -63,7 +62,7 @@ export default function ItemList({
         <StatusText color={getGoalStatusColor(goal.status)}>
           Status: {getGoalStatusText(goal.status)}
         </StatusText>
-        <DeleteButton size="sm" />
+        <DeleteButton size="sm" onClick={() => onClickRemove(goal.id)} />
         <EditButton size="sm" />
         <ExpandButton expanded={expanded}>
           <img src={chevron} />

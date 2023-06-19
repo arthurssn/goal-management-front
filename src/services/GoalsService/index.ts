@@ -19,6 +19,11 @@ const GoalsService = {
       }, 100);
     });
   },
+
+  delete: async function (id: number): Promise<void> {
+    const goalIndex = goals.findIndex((goal) => goal.id == id);
+    goals.splice(goalIndex, 1);
+  },
 };
 
 // toda essa filtragem sera feita na API, quando existir
