@@ -1,5 +1,10 @@
 import { useState } from "react";
-import { CreateButtonContainer, ListContainer } from "./styles";
+import {
+  CreateButtonContainer,
+  ItemContainer,
+  ListContainer,
+  Separator,
+} from "./styles";
 import IndexList from "@/components/layout/IndexList";
 import CreateButton from "./components/CreateButton";
 import ItemList from "./components/ItemList";
@@ -31,11 +36,10 @@ export default function Home() {
           </CreateButtonContainer>
           <ListContainer>
             {renderedList.map((goal) => (
-              <ItemList
-                goal={goal}
-                onUpdateStatus={updateGoalStatus}
-                key={goal.id}
-              />
+              <ItemContainer key={goal.id}>
+                <ItemList goal={goal} onUpdateStatus={updateGoalStatus} />
+                <Separator />
+              </ItemContainer>
             ))}
           </ListContainer>
         </>
