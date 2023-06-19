@@ -1,6 +1,6 @@
 import AppSelect from "@/components/forms/AppSelect";
 import { InputWithBorderBottom } from "@/components/forms/InputWithBorderBottom";
-import { InputsFilterContainer } from "../../styles";
+import { InputsFilterContainer } from "./styles";
 import { IAppSelectOptions } from "@/interfaces/forms/IAppSelectOptions";
 import search_icon from "@/assets/icons/search_icon.svg";
 import { Deadlines } from "@/enums/Deadlines";

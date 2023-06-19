@@ -21,6 +21,7 @@ import { GoalStatus } from "@/enums/GoalStatus";
 import AppSelect from "@/components/forms/AppSelect";
 import { goalStatusOptions } from "@/constants/goalStatusOptions";
 import EditButton from "@/components/buttons/EditButton";
+import DeleteButton from "@/components/buttons/DeleteButton";
 
 export default function ItemList({
   goal,
@@ -62,7 +63,8 @@ export default function ItemList({
         <StatusText color={getGoalStatusColor(goal.status)}>
           Status: {getGoalStatusText(goal.status)}
         </StatusText>
-        <EditButton size="sm">Edit</EditButton>
+        <DeleteButton size="sm" />
+        <EditButton size="sm" />
         <ExpandButton expanded={expanded}>
           <img src={chevron} />
         </ExpandButton>

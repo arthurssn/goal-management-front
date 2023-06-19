@@ -32,7 +32,7 @@ export const ItemContent = styled.div`
   grid-row-gap: 15px;
   grid-template-columns: 1fr;
   @media ${devices.tablet} {
-    grid-template-columns: 1fr 150px 220px 24px;
+    grid-template-columns: 1fr 150px 110px 110px 24px;
     grid-template-rows: 1fr;
   }
 `;
