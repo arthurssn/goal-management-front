@@ -47,13 +47,17 @@ export const TitleContainer = styled.div`
   overflow: hidden;
 `;
 
-export const TitleText = styled.p`
+export const TitleText = styled.p<{ expanded?: boolean }>`
   flex: 1;
-  white-space: nowrap;
+  white-space: ${(props) => (props.expanded ? "wrap" : "nowrap")};
   overflow: hidden;
   text-overflow: ellipsis;
   resize: none;
   max-width: max-content;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20px;
 `;
 
 export const ExpandButton = styled.div<{ expanded: boolean }>`

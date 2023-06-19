@@ -6,11 +6,11 @@ import {
   Separator,
 } from "./styles";
 import IndexList from "@/components/layout/IndexList";
-import CreateButton from "./components/CreateButton";
 import ItemList from "./components/ItemList";
 import useGoals from "./hooks/useGoals";
 import Filters from "./components/Filters";
 import { Deadlines } from "@/enums/Deadlines";
+import CreateButton from "@/components/buttons/CreateButton";
 export default function Home() {
   const [wordSearched, setWordSearched] = useState<string>("");
   const [deadlineFilter, setDeadlineFilter] = useState<Deadlines | "">(
@@ -32,7 +32,7 @@ export default function Home() {
             setWordSearched={setWordSearched}
           />
           <CreateButtonContainer>
-            <CreateButton />
+            <CreateButton size="md">Create</CreateButton>
           </CreateButtonContainer>
           <ListContainer>
             {renderedList.map((goal) => (

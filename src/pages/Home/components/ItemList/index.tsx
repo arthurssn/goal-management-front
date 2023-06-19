@@ -20,6 +20,7 @@ import GoalsService from "@/services/GoalsService";
 import { GoalStatus } from "@/enums/GoalStatus";
 import AppSelect from "@/components/forms/AppSelect";
 import { goalStatusOptions } from "@/constants/goalStatusOptions";
+import EditButton from "@/components/buttons/EditButton";
 
 export default function ItemList({
   goal,
@@ -56,20 +57,23 @@ export default function ItemList({
               onClick={(e) => e.stopPropagation()}
             />
           </StatusSelectContainer>
-          <TitleText>{goal.title}</TitleText>
+          {!expanded && <TitleText expanded={expanded}>{goal.title}</TitleText>}
         </TitleContainer>
         <StatusText color={getGoalStatusColor(goal.status)}>
           Status: {getGoalStatusText(goal.status)}
         </StatusText>
-        <span>Deadline: {goal.deadline.toLocaleDateString()} </span>
+        <EditButton size="sm">Edit</EditButton>
         <ExpandButton expanded={expanded}>
           <img src={chevron} />
         </ExpandButton>
       </ItemContent>
       {expanded && (
-        <DescriptionText expanded={expanded}>
-          {goal.description ?? "No description"}
-        </DescriptionText>
+        <>
+          <TitleText expanded={expanded}>Title: {goal.title}</TitleText>
+          <DescriptionText expanded={expanded}>
+            Description: {goal.description ?? "No description"}
+          </DescriptionText>
+        </>
       )}
     </ItemListContainer>
   );
