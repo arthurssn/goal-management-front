@@ -10,23 +10,30 @@ export const GridContainer = styled.div`
   grid-template-areas:
     "header header"
     "main main";
-  @media ${devices.tablet} {
+  @media ${devices.laptop} {
     grid-template-areas:
       "header header"
       "sidebar main";
   }
+  padding-bottom: 50px;
 `;
 
 export const AppSidebar = styled.div`
   grid-area: sidebar;
   display: none;
-  @media ${devices.tablet} {
+  @media ${devices.laptop} {
     display: block;
   }
 `;
 
 export const AppHeader = styled.div`
   grid-area: header;
+  position: fixed;
+  height: 80px;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 10000;
 `;
 
 export const AppMain = styled.div`
