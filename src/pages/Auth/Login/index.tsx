@@ -79,11 +79,12 @@ export default function Login() {
         <FooterContainer>
           <AppButton
             type="submit"
-            text="Login"
             backgroundColor={theme.colors.red}
             color={theme.colors.white}
             loading={sendingData}
-          />
+          >
+            Login
+          </AppButton>
           <p
             style={{
               color: theme.colors.lightTextColor,
@@ -94,13 +95,14 @@ export default function Login() {
             ou
           </p>
           <AppButton
-            text="Register"
             backgroundColor="#fff"
             color={theme.colors.darkTextColor}
             borderColor={theme.colors.red}
             type="button"
             onClick={() => navigate("/register")}
-          />
+          >
+            Register
+          </AppButton>
         </FooterContainer>
       </ContainerFormLogin>
     </ContainerPageLogin>

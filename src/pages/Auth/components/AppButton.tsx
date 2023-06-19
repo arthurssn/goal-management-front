@@ -3,7 +3,7 @@ import { ButtonFormLogin } from "./styles";
 import { Spinner } from "@/styles/spinner";
 
 interface AppButtonProps {
-  text: string;
+  children: React.ReactNode;
   onClick?: (event: MouseEvent<HTMLButtonElement | HTMLLabelElement>) => void;
   color: string;
   backgroundColor: string;
@@ -13,7 +13,7 @@ interface AppButtonProps {
 }
 
 export function AppButton({
-  text,
+  children,
   color,
   backgroundColor,
   borderColor,
@@ -29,8 +29,8 @@ export function AppButton({
       borderColor={borderColor}
       onClick={onClick}
     >
-      {loading ? <Spinner /> : ""}
-      {text}
+      {loading && <Spinner />}
+      {children}
     </ButtonFormLogin>
   );
 }
