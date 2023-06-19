@@ -16,17 +16,15 @@ export const ItemListContainer = styled.div`
   * {
     display: flex;
     align-items: center;
-  }
-`;
-
-export const ItemContent = styled.div`
-  cursor: pointer;
-  * {
     font-style: normal;
     font-weight: 500;
     font-size: 16px;
     line-height: 20px;
   }
+`;
+
+export const ItemContent = styled.div`
+  cursor: pointer;
   display: grid;
   max-width: 100%;
   width: 100%;
@@ -56,12 +54,7 @@ export const TitleText = styled.p<{ expanded?: boolean }>`
   white-space: ${(props) => (props.expanded ? "wrap" : "nowrap")};
   overflow: hidden;
   text-overflow: ellipsis;
-  resize: none;
-  max-width: max-content;
-  font-style: normal;
-  font-weight: 500;
-  font-size: 16px;
-  line-height: 20px;
+  max-width: 100%;
 `;
 
 export const ExpandButton = styled.div<{ expanded: boolean }>`
