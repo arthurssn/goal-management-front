@@ -1,12 +1,18 @@
-import { BaseButton } from "../styles";
 import trash_icon from "../assets/trash_icon.svg";
+import AppBaseButton from "../AppBaseButton";
 
-export default function DeleteButton({ children, size }: BaseButtonProps) {
+export default function DeleteButton({
+  children,
+  size,
+  onClick,
+}: BaseButtonProps) {
   return (
-    <>
-      <BaseButton color="red" size={size}>
-        <img src={trash_icon} /> {children}
-      </BaseButton>
-    </>
+    <AppBaseButton
+      color="red"
+      size={size}
+      onClick={onClick}
+      icon={trash_icon}
+      children={children}
+    />
   );
 }

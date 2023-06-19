@@ -1,12 +1,18 @@
-import { BaseButton } from "../styles";
 import add_icon from "../assets/add_icon.svg";
+import AppBaseButton from "../AppBaseButton";
 
-export default function CreateButton({ children, size }: BaseButtonProps) {
+export default function CreateButton({
+  children,
+  size,
+  onClick,
+}: BaseButtonProps) {
   return (
-    <>
-      <BaseButton color="green" size={size}>
-        <img src={add_icon} /> {children}
-      </BaseButton>
-    </>
+    <AppBaseButton
+      children={children}
+      size={size}
+      color="green"
+      icon={add_icon}
+      onClick={onClick}
+    />
   );
 }
