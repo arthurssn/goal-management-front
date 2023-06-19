@@ -15,12 +15,6 @@ export const ItemListContainer = styled.div`
   gap: 15px;
 `;
 
-export const Separator = styled.div`
-  width: 100%;
-  height: 0px;
-  border: 1px solid #cccccc;
-`;
-
 export const ItemContent = styled.div`
   cursor: pointer;
   * {
@@ -30,11 +24,11 @@ export const ItemContent = styled.div`
     line-height: 20px;
   }
   display: grid;
+  max-width: 100%;
   width: 100%;
-  grid-column-gap: 50px;
+  grid-column-gap: 25px;
   grid-row-gap: 15px;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(3, 1fr);
   @media ${devices.tablet} {
     grid-template-columns: 1fr 150px 220px 24px;
     grid-template-rows: 1fr;
@@ -45,13 +39,21 @@ export const StatusText = styled.p<{ color: string }>`
   color: ${(props) => props.theme.colors[props.color]};
 `;
 
-export const TitleContainer = styled.span`
-  max-width: 100%;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+export const TitleContainer = styled.div`
   display: flex;
   gap: 10px;
+  flex-wrap: wrap;
+  max-width: 100%;
+  overflow: hidden;
+`;
+
+export const TitleText = styled.p`
+  flex: 1;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  resize: none;
+  max-width: max-content;
 `;
 
 export const ExpandButton = styled.div<{ expanded: boolean }>`

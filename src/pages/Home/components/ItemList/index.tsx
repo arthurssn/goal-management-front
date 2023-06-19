@@ -3,10 +3,10 @@ import {
   ExpandButton,
   ItemContent,
   ItemListContainer,
-  Separator,
   StatusSelectContainer,
   StatusText,
   TitleContainer,
+  TitleText,
 } from "./styles";
 import chevron from "./chevron.svg";
 import { IGoal } from "@/interfaces/IGoal";
@@ -56,7 +56,7 @@ export default function ItemList({
               onClick={(e) => e.stopPropagation()}
             />
           </StatusSelectContainer>
-          {goal.title}
+          <TitleText>{goal.title}</TitleText>
         </TitleContainer>
         <StatusText color={getGoalStatusColor(goal.status)}>
           Status: {getGoalStatusText(goal.status)}
@@ -71,7 +71,6 @@ export default function ItemList({
           {goal.description ?? "No description"}
         </DescriptionText>
       )}
-      <Separator />
     </ItemListContainer>
   );
 }
