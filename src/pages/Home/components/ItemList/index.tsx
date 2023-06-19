@@ -29,7 +29,6 @@ export default function ItemList({
   onUpdateStatus: (id: number, status: GoalStatus) => void;
 }) {
   const [expanded, setExpanded] = useState<boolean>(false);
-  const statusOptions = goalStatusOptions;
 
   function toggleExpanded() {
     setExpanded((prev) => !prev);
@@ -51,7 +50,7 @@ export default function ItemList({
               id="status"
               name="status"
               label="Select"
-              options={statusOptions}
+              options={goalStatusOptions}
               onChange={tryUpdateGoalStatus}
               value={goal.status}
               onClick={(e) => e.stopPropagation()}
@@ -63,11 +62,15 @@ export default function ItemList({
           Status: {getGoalStatusText(goal.status)}
         </StatusText>
         <span>Deadline: {goal.deadline.toLocaleDateString()} </span>
-        <ExpandButton onClick={toggleExpanded}>
+        <ExpandButton expanded={expanded}>
           <img src={chevron} />
         </ExpandButton>
       </ItemContent>
-      {expanded && <DescriptionText>{goal.description}</DescriptionText>}
+      {expanded && (
+        <DescriptionText expanded={expanded}>
+          {goal.description ?? "No description"}
+        </DescriptionText>
+      )}
       <Separator />
     </ItemListContainer>
   );

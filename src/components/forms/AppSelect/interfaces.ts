@@ -10,4 +10,5 @@ export interface IAppSelectProps extends FormInputProps {
   onChange?: (event: ChangeEvent<HTMLSelectElement>) => void;
   onClick?: React.MouseEventHandler<HTMLSelectElement>;
   value: string | number | readonly string[] | undefined;
+  color?: string;
 }

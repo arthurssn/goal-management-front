@@ -9,6 +9,7 @@ export default function AppSelect({
   onChange,
   onClick,
   value,
+  color,
 }: IAppSelectProps) {
   return (
     <AppSelectInput
@@ -19,6 +20,7 @@ export default function AppSelect({
       onChange={onChange}
       onClick={onClick}
       value={value}
+      color={color}
     >
       <option value="" disabled>
         {label}

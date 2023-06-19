@@ -1,5 +1,11 @@
+import {
+  collapseAnimation,
+  expandAnimation,
+  rotateAnimation,
+  rotateAnimationReverse,
+} from "@/animations/animations";
 import { devices } from "@/constants/devices";
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
 export const ItemListContainer = styled.div`
   width: 100%;
@@ -48,8 +54,15 @@ export const TitleContainer = styled.span`
   gap: 10px;
 `;
 
-export const ExpandButton = styled.div`
+export const ExpandButton = styled.div<{ expanded: boolean }>`
   cursor: pointer;
+  ${({ expanded }) =>
+    css`
+      img {
+        animation: ${expanded ? rotateAnimation : rotateAnimationReverse} 600ms
+          cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+      }
+    `}
   display: flex;
   justify-content: center;
   @media ${devices.tablet} {
@@ -57,12 +70,17 @@ export const ExpandButton = styled.div`
   }
 `;
 
-export const DescriptionText = styled.p`
+export const DescriptionText = styled.p<{ expanded: boolean }>`
   font-size: 16px;
   font-weight: 500;
   line-height: 20px;
   letter-spacing: 0em;
   text-align: left;
+  ${({ expanded }) =>
+    css`
+      animation: ${expanded ? expandAnimation : collapseAnimation} 0.6s
+        cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+    `}
 `;
 
 export const StatusSelectContainer = styled.div`
