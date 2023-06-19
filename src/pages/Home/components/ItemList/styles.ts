@@ -13,6 +13,10 @@ export const ItemListContainer = styled.div`
   flex-direction: column;
   align-items: flex-start;
   gap: 15px;
+  * {
+    display: flex;
+    align-items: center;
+  }
 `;
 
 export const ItemContent = styled.div`
