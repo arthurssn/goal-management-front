@@ -7,7 +7,11 @@ import { useEffect, useState } from "react";
 export default function useGoals(
   wordSearched: string,
   deadlineFilter: Deadlines | ""
-): [IGoal[], (id: number, status: GoalStatus) => void, (id: number) => void] {
+): [
+  IGoal[],
+  (id: number, status: GoalStatus) => void,
+  (id: number) => Promise<unknown>
+] {
   const [goals, setGoals] = useState<IGoal[]>([]);
 
   useEffect(() => {
@@ -36,9 +40,14 @@ export default function useGoals(
   }
 
   async function deleteGoal(id: number) {
-    await GoalsService.delete(id);
-    const updatedGoals = goals.filter((goal) => goal.id !== id);
-    setGoals(updatedGoals);
+    try {
+      const response = await GoalsService.delete(id);
+      const updatedGoals = goals.filter((goal) => goal.id !== id);
+      setGoals(updatedGoals);
+      return response;
+    } catch (error) {
+      throw error;
+    }
   }
 
   return [filteredGoals, updateGoalStatus, deleteGoal];

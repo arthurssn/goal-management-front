@@ -11,6 +11,8 @@ import useGoals from "./hooks/useGoals";
 import Filters from "./components/Filters";
 import { Deadlines } from "@/enums/Deadlines";
 import CreateButton from "@/components/buttons/CreateButton";
+import { alertConfirmAction, alertSuccessMessage } from "@/utils/swalUtils";
+
 export default function Home() {
   const [wordSearched, setWordSearched] = useState<string>("");
   const [deadlineFilter, setDeadlineFilter] = useState<Deadlines | "">(
@@ -20,6 +22,16 @@ export default function Home() {
     wordSearched,
     deadlineFilter
   );
+
+  async function handleRemoveClick(id: number) {
+    const response = await alertConfirmAction({
+      message: "Do you want delete this goal?",
+    });
+    if (response.isConfirmed) {
+      await deleteGoal(id);
+      alertSuccessMessage({ message: "Successfully deleted goal" });
+    }
+  }
 
   return (
     <IndexList
@@ -40,7 +52,7 @@ export default function Home() {
                 <ItemList
                   goal={goal}
                   onUpdateStatus={updateGoalStatus}
-                  onClickRemove={deleteGoal}
+                  onClickRemove={handleRemoveClick}
                 />
                 <Separator />
               </ItemContainer>
