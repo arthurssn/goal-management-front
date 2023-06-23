@@ -1,6 +1,6 @@
 import { InputLabel } from "../components/InputLabel";
+import { AppButton } from "../components/AppButton";
 
-import React, { useState } from "react";
 import { useAuth } from "@/hooks/useAuth";
 import {
   ContainerPageLogin,
@@ -12,10 +12,17 @@ import {
   FooterContainer,
   ContainerErrorMessage,
 } from "../styles";
-import { IUserAuth } from "@/interfaces/IUserAuth";
-import { AppButton } from "../components/AppButton";
-import { AxiosError } from "axios";
+
+import name_crach_icon from "@/assets/icons/name_crach_icon.svg";
+import email_icon from "@/assets/icons/email_icon.svg";
+import lock_icon from "@/assets/icons/lock_icon.svg";
+
 import { useTheme } from "@/hooks/useTheme";
+
+import { IUserAuth } from "@/interfaces/IUserAuth";
+
+import React, { useState } from "react";
+import { AxiosError } from "axios";
 import { useNavigate } from "react-router-dom";
 
 interface ApiResponse {
@@ -59,7 +66,7 @@ export default function Register() {
           <InputGroup>
             <InputLabel
               type="text"
-              icon="src/assets/icons/name_crach_icon.svg"
+              icon={name_crach_icon}
               placeholder="Name"
               onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
@@ -68,7 +75,7 @@ export default function Register() {
           <InputGroup>
             <InputLabel
               type="text"
-              icon="src/assets/icons/email_icon.svg"
+              icon={email_icon}
               placeholder="Email"
               onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
@@ -77,7 +84,7 @@ export default function Register() {
           <InputGroup>
             <InputLabel
               type="password"
-              icon="src/assets/icons/lock_icon.svg"
+              icon={lock_icon}
               placeholder="Password"
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             />

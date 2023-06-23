@@ -1,5 +1,11 @@
 import { IMenuItem, ISubmenuItem } from "@/interfaces/IMenuItem";
 
+import heart_icon from "@/services/MenuService/icons/heart_icon.svg";
+import bag_icon from "@/services/MenuService/icons/bag_icon.svg";
+import fitness_icon from "@/services/MenuService/icons/fitness_icon.svg";
+import finance_icon from "@/services/MenuService/icons/finance_icon.svg";
+import star_icon from "@/services/MenuService/icons/star_icon.svg";
+
 const itemsPersonal: ISubmenuItem[] = [
   { label: "Read 24 books", color: "rgba(255, 63, 52, 0.5);", path: "/" },
   {
@@ -25,25 +31,25 @@ const itemsFinance: ISubmenuItem[] = [
 export const categories: IMenuItem[] = [
   {
     id: 1,
-    icon: "src/services/MenuService/icons/heart_icon.svg",
+    icon: heart_icon,
     label: "Personal",
     subitems: itemsPersonal,
   },
   {
     id: 2,
-    icon: "src/services/MenuService/icons/bag_icon.svg",
+    icon: bag_icon,
     label: "Professional",
     subitems: itemsProfessinal,
   },
   {
     id: 3,
-    icon: "src/services/MenuService/icons/fitness_icon.svg",
+    icon: fitness_icon,
     label: "Fitness",
     subitems: itemsFitness,
   },
   {
     id: 4,
-    icon: "src/services/MenuService/icons/finance_icon.svg",
+    icon: finance_icon,
     label: "Finance",
     subitems: itemsFinance,
   },
@@ -52,12 +58,12 @@ export const categories: IMenuItem[] = [
 export const priorities: IMenuItem[] = [
   {
     id: 1,
-    icon: "src/services/MenuService/icons/star_icon.svg",
+    icon: star_icon,
     label: "Acc 10k",
   },
   {
     id: 1,
-    icon: "src/services/MenuService/icons/star_icon.svg",
+    icon: star_icon,
     label: "Read 24 books",
   },
 ];
