@@ -1,17 +1,25 @@
 import { useState } from "react";
+
+import { useNavigate } from "react-router-dom";
+
 import {
   CreateButtonContainer,
   ItemContainer,
   ListContainer,
   Separator,
 } from "./styles";
+
 import IndexList from "@/components/layout/IndexList";
-import ItemList from "./components/ItemList";
-import useGoals from "./hooks/useGoals";
-import Filters from "./components/Filters";
-import { Deadlines } from "@/enums/Deadlines";
 import CreateButton from "@/components/buttons/CreateButton";
+
+import ItemList from "./components/ItemList";
+import Filters from "./components/Filters";
+
+import { Deadlines } from "@/enums/Deadlines";
+
 import { alertConfirmAction, alertSuccessMessage } from "@/utils/swalUtils";
+
+import useGoals from "./hooks/useGoals";
 
 export default function GoalsList() {
   const [wordSearched, setWordSearched] = useState<string>("");
@@ -22,6 +30,7 @@ export default function GoalsList() {
     wordSearched,
     deadlineFilter
   );
+  const navigate = useNavigate();
 
   async function handleRemoveClick(id: number) {
     const response = await alertConfirmAction({
@@ -44,7 +53,9 @@ export default function GoalsList() {
             setWordSearched={setWordSearched}
           />
           <CreateButtonContainer>
-            <CreateButton size="md">Create</CreateButton>
+            <CreateButton size="md" onClick={() => navigate("/goals/create")}>
+              Create
+            </CreateButton>
           </CreateButtonContainer>
           <ListContainer>
             {renderedList.map((goal) => (
