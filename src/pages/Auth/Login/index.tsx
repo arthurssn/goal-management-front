@@ -1,8 +1,5 @@
 import { InputLabel } from "../components/InputLabel";
-
-import React, { useState } from "react";
-
-import { useAuth } from "@/hooks/useAuth";
+import { AppButton } from "../components/AppButton";
 
 import {
   ContainerPageLogin,
@@ -15,10 +12,19 @@ import {
   ContainerErrorMessage,
 } from "../styles";
 
+import email_icon from "@/assets/icons/email_icon.svg";
+import lock_icon from "@/assets/icons/lock_icon.svg";
+
 import { IUserAuth } from "@/interfaces/IUserAuth";
-import { AppButton } from "../components/AppButton";
-import { AxiosError } from "axios";
+
+import { useAuth } from "@/hooks/useAuth";
+
 import { useTheme } from "@/hooks/useTheme";
+
+import React, { useState } from "react";
+
+import { AxiosError } from "axios";
+
 import { useNavigate } from "react-router-dom";
 
 interface ApiResponse {
@@ -60,7 +66,7 @@ export default function Login() {
           <InputGroup>
             <InputLabel
               type="text"
-              icon="src/assets/icons/email_icon.svg"
+              icon={email_icon}
               placeholder="Email"
               onChange={(e) => setUser({ ...user, email: e.target.value })}
             />
@@ -69,7 +75,7 @@ export default function Login() {
           <InputGroup>
             <InputLabel
               type="password"
-              icon="src/assets/icons/lock_icon.svg"
+              icon={lock_icon}
               placeholder="Password"
               onChange={(e) => setUser({ ...user, password: e.target.value })}
             />
