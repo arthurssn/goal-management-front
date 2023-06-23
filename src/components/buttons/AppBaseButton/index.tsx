@@ -2,7 +2,7 @@ import { BaseButton } from "../styles";
 
 interface AppBaseButtonProps extends BaseButtonProps {
   color: string;
-  icon: string;
+  icon?: string;
 }
 
 export default function AppBaseButton({
@@ -14,7 +14,8 @@ export default function AppBaseButton({
 }: AppBaseButtonProps) {
   return (
     <BaseButton color={color} size={size} onClick={onClick}>
-      <img src={icon} /> {children}
+      {icon && <img src={icon} />}
+      {children}
     </BaseButton>
   );
 }
