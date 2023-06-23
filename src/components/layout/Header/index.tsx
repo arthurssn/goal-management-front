@@ -6,7 +6,7 @@ export default function Header() {
       <img src="src/assets/icons/home_icon.svg" alt="home_icon" />
 
       <UserInfo>
-        Olá, Arthur!
+        Bem-vindo!
         <CircleUserProfilePic>
           <img src="src/assets/icons/user_icon.svg" alt="user_icon" />
         </CircleUserProfilePic>

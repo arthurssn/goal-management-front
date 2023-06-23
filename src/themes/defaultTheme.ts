@@ -5,6 +5,8 @@ export const defaultTheme: Theme = {
   colors: {
     red: "#ff3f34",
     white: "#fff",
+    green: "#00B300",
+    orange: "#F6C90E",
 
     darkTextColor: "#333333",
     lightTextColor: "rgba(102, 102, 102, 0.75)",

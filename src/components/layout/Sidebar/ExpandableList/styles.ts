@@ -1,22 +1,8 @@
-import styled, { css, keyframes } from "styled-components";
-
-const rotateAnimation = keyframes`
- 0% {
-    transform: rotate(0);
-  }
-  100% {
-    transform: rotate(90deg);
-  }
-`;
-
-const rotateAnimationReverse = keyframes`
- 0% {
-    transform: rotate(90deg);
-  }
-  100% {
-    transform: rotate(0);
-  }
-`;
+import {
+  rotateAnimation,
+  rotateAnimationReverse,
+} from "@/animations/animations";
+import styled, { css } from "styled-components";
 
 export const HeaderContainer = styled.div<{ expanded: boolean }>`
   display: flex;

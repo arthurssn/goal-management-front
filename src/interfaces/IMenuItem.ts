@@ -5,6 +5,7 @@ export interface ISubmenuItem {
 }
 
 export interface IMenuItem {
+  id: number;
   label: string;
   icon: string;
   subitems?: ISubmenuItem[] | undefined;

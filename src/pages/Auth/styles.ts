@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 export const ContainerPageLogin = styled.div`
   width: 100%;
   min-height: 100vh;
-  background-color: #ccc;
+  background-color: #cccce2;
   display: flex;
   justify-content: center;
 `;

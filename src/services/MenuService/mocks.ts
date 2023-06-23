@@ -24,21 +24,25 @@ const itemsFinance: ISubmenuItem[] = [
 
 export const categories: IMenuItem[] = [
   {
+    id: 1,
     icon: "src/services/MenuService/icons/heart_icon.svg",
     label: "Personal",
     subitems: itemsPersonal,
   },
   {
+    id: 2,
     icon: "src/services/MenuService/icons/bag_icon.svg",
     label: "Professional",
     subitems: itemsProfessinal,
   },
   {
+    id: 3,
     icon: "src/services/MenuService/icons/fitness_icon.svg",
     label: "Fitness",
     subitems: itemsFitness,
   },
   {
+    id: 4,
     icon: "src/services/MenuService/icons/finance_icon.svg",
     label: "Finance",
     subitems: itemsFinance,
@@ -47,11 +51,13 @@ export const categories: IMenuItem[] = [
 
 export const priorities: IMenuItem[] = [
   {
+    id: 1,
     icon: "src/services/MenuService/icons/star_icon.svg",
     label: "Acc 10k",
   },
   {
+    id: 1,
     icon: "src/services/MenuService/icons/star_icon.svg",
-    label: "Ready 24 books",
+    label: "Read 24 books",
   },
 ];

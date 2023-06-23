@@ -7,9 +7,9 @@ import DashboardTemplate from "@/components/template/DashboardTemplate";
 import ProtectedRoute from "@/components/ProtectedRoute";
 import { useAuth } from "@/hooks/useAuth";
 
-const AppRoutes = () => {
+const AppRoutes = (): JSX.Element | null => {
   const { email, isInitialized } = useAuth();
-  if (!isInitialized) return;
+  if (!isInitialized) return null;
 
   const emailExists = email !== undefined;
   return (
